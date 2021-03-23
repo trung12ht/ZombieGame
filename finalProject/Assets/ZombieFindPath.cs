@@ -23,21 +23,25 @@ public class ZombieFindPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Time.time >= nextTime)
+        if (!this.name.Equals("Zombie1"))
         {
+            if (Time.time >= nextTime)
+            {
 
-            nm.SetDestination(target.position);
+                nm.SetDestination(target.position);
 
-            nextTime += interval;
+                nextTime += interval;
 
+            }
+
+            float velocity = nm.velocity.magnitude / nm.speed;
+
+            if (velocity <= 0.5f)
+            {
+                nm.SetDestination(target.position);
+            }
         }
-
-        float velocity = nm.velocity.magnitude / nm.speed;
-
-        if (velocity <= 0.5f) {
-            nm.SetDestination(target.position);
-        }
+        
 
     }
 }
