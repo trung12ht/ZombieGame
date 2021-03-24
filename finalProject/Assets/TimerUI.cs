@@ -26,7 +26,7 @@ public class TimerUI : MonoBehaviour
         }
         else
         {
-            timeRemaining = 60;
+            timeRemaining = 120;
             preTimer.text = "     Survival to win: ";
         }
         timer.text = timeRemaining.ToString();

@@ -20,10 +20,12 @@ public class CapsuleZombie : MonoBehaviour
         if (collision.collider.name == "Zombie1")
         {
             Debug.Log("You lose!");
+            GameOverMenu.isLose = true;
         }
         if (collision.collider.name == "Zombie1(Clone)")
         {
             Debug.Log("You lose!");
+            GameOverMenu.isLose = true;
         }
     }
 
