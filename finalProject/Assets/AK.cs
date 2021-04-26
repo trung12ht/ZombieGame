@@ -4,35 +4,28 @@ using UnityEngine;
 
 public class AK : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public Transform target;
 
-    public Rigidbody2D rb;
+    public float smoothSpeed = Constant.smoothSpeed;
 
-    Vector2 movement;
-    Vector2 mousePos;
-    public Camera can;
-    
+    public Vector3 offset;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       // movement.x = Input.GetAxisRaw("Horizontal");
-       // movement.y = Input.GetAxisRaw("Vertical");
 
-       // mousePos = can.ScreenToWorldPoint(Input.mousePosition);
     }
-    void FixedUpdate()
+
+    void LateUpdate()
     {
-        
-       // rb.MovePosititon(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-      //  Vector2 lookDir = mousePos - rb.position;
-      //  float angle = Mathf.Atan2(lockDir.y, lockDir.x) * Mathf.Rad2Deg - 90f;
-       // rb.rotation = angle;
+
+        transform.position = target.position + offset;
     }
-   
+
 }
