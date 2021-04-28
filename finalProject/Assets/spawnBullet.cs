@@ -12,12 +12,12 @@ public class spawnBullet : MonoBehaviour
     public PlayerBullet playerBullet;
     void Start()
     {
-        
+        playerBullet = GameObject.Find("InGameGUI").GetComponent<PlayerBullet>();
     }
 
     void Awake() // lấy đối tượng
     {
-        playerBullet = GetComponent<PlayerBullet>();
+       
 
     }
     // Update is called once per frame

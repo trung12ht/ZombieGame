@@ -14,6 +14,7 @@ public class BulletBox : MonoBehaviour
     void Start()
     {
         location = 1; // co  3 vi tri xuat hien hop dan
+        playerBullet = GameObject.Find("InGameGUI").GetComponent<PlayerBullet>(); // lấy đối tượng
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class BulletBox : MonoBehaviour
 
     void Awake()
     {
-        playerBullet = GetComponent<PlayerBullet>(); // lấy đối tượng
+       
         
     }
     void OnCollisionEnter(Collision collision)
