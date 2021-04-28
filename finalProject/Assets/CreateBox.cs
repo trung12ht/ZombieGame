@@ -35,7 +35,7 @@ public class CreateBox : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log(hit.point);
-                    Instantiate(spawnee, transform.position, transform.rotation);
+                    Instantiate(spawnee, hit.point, transform.rotation);
                 }
 
             }
