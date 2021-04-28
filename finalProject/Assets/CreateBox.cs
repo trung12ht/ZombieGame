@@ -8,9 +8,7 @@ public class CreateBox : MonoBehaviour
     // Start is called before the first frame update
     public Camera cam;
 
-    private bool onUseTp = false;
-
-    public GameObject spawnee;
+    public GameObject Cube;
 
     public Transform target;
 
@@ -35,7 +33,9 @@ public class CreateBox : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log(hit.point);
-                    Instantiate(spawnee, hit.point, transform.rotation);
+                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    cube.transform.position = new Vector3(hit.point.x, target.position.y, hit.point.z);
+
                 }
 
             }

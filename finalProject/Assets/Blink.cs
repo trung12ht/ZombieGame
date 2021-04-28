@@ -9,8 +9,6 @@ public class Blink : MonoBehaviour
 
     public Transform target;
 
-    private bool onUseTp = false;
-
     void Start()
     {
 
