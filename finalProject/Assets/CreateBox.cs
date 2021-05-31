@@ -12,32 +12,34 @@ public class CreateBox : MonoBehaviour
 
     public Transform target;
 
-    void Start()
-    {
+    public float timeSkillQ = 0.0f;
 
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.Q))
+        timeSkillQ -= Time.deltaTime;
+        if (timeSkillQ < 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKey(KeyCode.Q))
             {
-                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log(hit.point);
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cube.transform.position = new Vector3(hit.point.x, target.position.y, hit.point.z);
+                    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        Debug.Log(hit.point);
+                        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        cube.transform.position = new Vector3(hit.point.x, target.position.y, hit.point.z);
+                        timeSkillQ = 5.0f;
+                    }
 
                 }
-
             }
         }
     }
